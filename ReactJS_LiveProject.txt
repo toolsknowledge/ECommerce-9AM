@@ -105,7 +105,7 @@ Duration : 30 days   (30 - 40 days)
 
 5) consume above rest api call by using axios module in ReactJS
 
-											**** Deploy above images to s3 Bucket ****
+											**** Deploy above images to "s3" Bucket ****
 	URL : https://aws.amazon.com/
 
 	1) https://ecommerce-9am.s3.ap-south-1.amazonaws.com/p1.jpg
@@ -135,6 +135,103 @@ user name : admin
 password : admin
 
 Connection URL : mongodb+srv://admin:admin@cluster0.jgnmk.mongodb.net/ecommerce-9am?retryWrites=true&w=majority
+
+
+							******** develop rest api by using NodeJS *********
+
+step 1.
+	create the directory (folder)
+
+	Ex.
+		 server
+
+
+step 2.
+	switch to server directory
+
+	> cd server
+
+
+step 3.
+	download node modules
+
+	1) bcryptjs
+		- used to encrypt the passwords
+
+		- encrypted passwords only we should store in database.
+
+	2) express
+
+		- used to develop the rest services.
+
+		Ex.
+			GET
+			POST
+			PUT
+			DELETE
+			----
+			----
+			----
+
+	3) express-async-handler
+
+		- used to handle the rest api calls asynchronously.
+
+	4) body-parser
+
+		- used to receive the data from client application.
+
+	5) cors
+
+		- cors module used to enable the cors policy.
+
+	6) jsonwebtoken
+
+		- used to generate the tokens.
+
+		- in general, we will use these tokens for "token based authentication"
+
+	7) mongodb
+
+		 - mongodb module used to connect to "mongodb" database without "schema".
+
+	8) mongoose
+
+		- mongoose library used to connect to mongodb database with schema (rules and regulations)
+
+	9) dotenv
+
+		- used to configure the environmental variables related to nodejs server
+
+
+	> yarn add bcryptjs express express-async-handler body-parser jsonwebtoken cors mongodb mongoose dotenv --save
+
+
+
+step 4.
+	implement the node server
+
+	Ex.
+		server.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
