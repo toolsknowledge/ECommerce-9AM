@@ -4,13 +4,12 @@ const express = require("express");
 const cors = require("cors");
 const mongodb = require("mongodb");
 const mongoose = require("mongoose");
-const bodyparser = require("body-parser");
 const jsonwebtoken = require("jsonwebtoken");
 const express_async_handler = require("express-async-handler");
 const dotenv = require("dotenv");
 const bcryptjs = require("bcryptjs");
 const bodyparser = require("body-parser");
-const Products = require("./model/productModel");
+const Product = require("./model/productModel");
 
 
 //to develop "rest api's" we should create "rest" object
@@ -40,11 +39,33 @@ dotenv.config();
 
 
 
+//connect to mongodb database by using mongoose module
+mongoose.connect("mongodb+srv://admin:admin@cluster0.jgnmk.mongodb.net/ecommerce-9am?retryWrites=true&w=majority",{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useCreateIndex:true
+});
 
 
 
 
+//handle the server side error
+app.use((err,req,res,next)=>{
+    res.status(500).send({"err":err.message})        
+});
 
 
 
+//create the GET Request
+app.get("/api/products",express_async_handler(async (req,res)=>{
+        const products = await Product.find();
+        res.send(products);
+}));
 
+
+
+//assign the port number
+let port = process.env.PORT || 8080;
+app.listen(port,()=>{
+    console.log("server started");
+});
