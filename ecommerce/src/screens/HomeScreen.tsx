@@ -9,7 +9,7 @@ interface IProps{
     result : any;
 }
 
-class ProductsScreen extends Component<IProps,IState>{
+class HomeScreen extends Component<IProps,IState>{
      constructor(props:IProps){
          super(props);
      }
@@ -44,5 +44,5 @@ const send = (dispatch:any)=>{
 };
 
 
-export default connect(receive,send)(ProductsScreen);
+export default connect(receive,send)(HomeScreen);
 
