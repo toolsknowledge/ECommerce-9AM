@@ -363,7 +363,10 @@ ecommerce
 			- "Rating.tsx" used to show the rating bar
 
 
+											***** Main Screen Design *****
 
+App.tsx
+-------
 
 
 

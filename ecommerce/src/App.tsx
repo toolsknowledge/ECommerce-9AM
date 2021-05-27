@@ -1,14 +1,46 @@
+/*
+   1) grid-container
+
+   2) row
+
+   3) center
+
+   4) brand
+
+*/
+
+
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import HomeScreen from './screens/HomeScreen';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 
 function App() {
   return (
      <React.Fragment>
         <Router>
-           <Route path="/" component={HomeScreen} exact={true} strict></Route>
+           <div className="grid-container">
+              <header className="row">
+                 <div>
+                    <NavLink to="/" exact={true} strict className="brand">AshokIT</NavLink>
+                 </div>
+
+                 <div>
+                     <NavLink to="/" exact={true} strict>cart</NavLink>
+                     <NavLink to="/" exact={true} strict>signin</NavLink>
+                 </div>
+              </header>
+
+              <main>
+                  <Route path="/" component={HomeScreen} exact={true} strict></Route>
+              </main>
+
+              <footer className="row center">
+                  copyright@ashokit.in
+              </footer>
+           </div>
+           
         </Router>
      </React.Fragment>
   );
