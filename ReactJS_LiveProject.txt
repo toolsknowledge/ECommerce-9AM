@@ -368,7 +368,19 @@ ecommerce
 App.tsx
 -------
 
+												Module2 implementation
+												-----------------------
 
+1) create the rest api.
+
+	=> server receives the "_id" from "client application".
+
+	=> server will compare "_id" with "mongodb" database.
+
+	=> server return particular "record" to "react application".
+
+server.js
+---------
 
 
 
