@@ -371,16 +371,55 @@ App.tsx
 												Module2 implementation
 												-----------------------
 
-1) create the rest api.
+01/06/2021
+----------
 
-	=> server receives the "_id" from "client application".
+1) implement the rest api
 
-	=> server will compare "_id" with "mongodb" database.
+	=> /api/products/:id
 
-	=> server return particular "record" to "react application".
 
-server.js
----------
+
+2) navigate from HomeScreen to ProductScreen with "_id"
+
+
+3) implement the state management in ProductScreen
+
+			Redux
+
+			Thunk
+
+	*************************************
+	=> modal
+			Product.tsx
+
+	=> types
+			detail.types.tsx
+
+	=> actions
+			detail.action.tsx
+
+	=> reducer
+			detail.reducer.tsx
+
+	=> store
+			index.tsx
+
+	=> Component
+			"ProductScreen"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
