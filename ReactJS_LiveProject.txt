@@ -392,15 +392,24 @@ App.tsx
 	*************************************
 	=> modal
 			Product.tsx
+				- we have already existed modal "Product".
 
 	=> types
-			detail.types.tsx
+			DetailActionTypes.tsx
+
+				finally "DetailsLoadingAction" is ready.
+						@DetailsLoading
+						@DetailsLoadingSuccess
+						@DetailsLoadingFail
 
 	=> actions
-			detail.action.tsx
-
+			DetailActions.tsx
+				finally "getDetails()" action is ready. 
+	
 	=> reducer
-			detail.reducer.tsx
+			finally "DetailReducer" is ready.
+
+			with "detailReducer" function.
 
 	=> store
 			index.tsx
@@ -410,7 +419,8 @@ App.tsx
 
 
 
-
+				03/02/2021
+				----------
 
 
 
