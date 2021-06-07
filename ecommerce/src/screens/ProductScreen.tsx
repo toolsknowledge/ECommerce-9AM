@@ -5,6 +5,7 @@ import getDetails from "../actions/DetailActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
+import { History,LocationState } from "history";
 
 
 interface IState{
@@ -15,6 +16,7 @@ interface IProps{
     match : Match<paramRoutes>;
     getDetilsById:any;
     res:any;
+    history:History<LocationState>;
 }
 
 interface paramRoutes{
@@ -40,6 +42,11 @@ class ProductScreen extends Component<IProps,IState>{
     componentDidMount(){
         this.props.getDetilsById(this.props.match.params.id);
     }
+
+    addToCart = (id:any)=>{
+        this.props.history.push(`/cart/${id}?qty=${this.state.qty}`);
+    };
+
 
     render(){
         const { loading,product,error } = this.props.res;
@@ -108,7 +115,8 @@ class ProductScreen extends Component<IProps,IState>{
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <button className="primary block">Add to Cart</button>
+                                                    <button className="primary block" 
+                                                            onClick={()=>{this.addToCart(product._id)}}>Add to Cart</button>
 
                                                 </li>
                                             </>

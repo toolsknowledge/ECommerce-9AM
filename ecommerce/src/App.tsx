@@ -13,6 +13,7 @@ import './App.css';
 import HomeScreen from './screens/HomeScreen';
 import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
 
 interface IState{}
 
@@ -42,6 +43,7 @@ class App extends Component<IProps,IState> {
                   <main>
                       <Route path="/" component={HomeScreen} exact={true} strict></Route>
                       <Route path="/product/:id" component={ProductScreen} exact={true} strict></Route>
+                      <Route path="/cart/:id" component={CartScreen} exact={true} strict></Route>
                   </main>
     
                   <footer className="row center">

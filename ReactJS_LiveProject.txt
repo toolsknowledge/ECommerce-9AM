@@ -419,8 +419,32 @@ App.tsx
 
 
 
-				03/02/2021
-				----------
+
+											07/06/2021
+											----------
+											Module3
+CartModule
+----------
+
+1) navigate from ProductScreen to CartScreen
+		@_id
+		@qty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
