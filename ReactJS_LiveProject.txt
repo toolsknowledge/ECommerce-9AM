@@ -423,158 +423,29 @@ App.tsx
 											07/06/2021
 											----------
 											Module3
-CartModule
-----------
 
-1) navigate from ProductScreen to CartScreen
-		@_id
-		@qty
 
+1) navigate from ProductScreen to CartScreen    (_id & qty)
 
 
+2) create the modal
 
+		http://localhost:8080/api/products/id
 
 
+3) create the types
 
 
+4) create the actions
 
 
+5) implement the reducer  (identify duplicate item and replace old qty with latest qty)
 
 
+6) perform dispath and subscription operation in CartScreen.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+7) use localStorage to persist cart items.
 
 
 
