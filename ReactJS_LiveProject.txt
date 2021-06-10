@@ -433,13 +433,52 @@ App.tsx
 		http://localhost:8080/api/products/id
 
 
+		**************************************************
+		ecommerce
+		         src
+				    modal
+					    Cart.tsx
+		**************************************************
+			finally "Cart" modal is ready.
+
+
 3) create the types
 
+		*****************************************************
+		ecommerce
+		        src
+				  types 
+				     CartActionTypes.tsx
+		*****************************************************
+
+				finally CartActionTypes are ready.
 
 4) create the actions
 
+		*******************************************************
+		ecommerce
+		        src
+				  actions
+				      CartActions.tsx
+		*******************************************************
+			finally "addCartItem" action is ready with @id  @qty
 
 5) implement the reducer  (identify duplicate item and replace old qty with latest qty)
+
+
+		*********************************************************
+		ecommerce
+		        src
+				   reducer
+				       CartReducer.tsx
+		*********************************************************
+
+			finally "CartReducer" is ready.
+
+
+
+
+
 
 
 6) perform dispath and subscription operation in CartScreen.

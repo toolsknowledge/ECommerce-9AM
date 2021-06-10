@@ -1,12 +1,10 @@
-import Product from "../model/Product";
+import Cart from "../model/Cart";
 
 export const ADD_ITEM:string = "ADD_ITEM";
 
 export interface CartAsync{
-    selectedItem:Product;
-    id:any;
-}
-
+    selectedItem:Cart;
+};
 
 export interface CartAddItem extends CartAsync{
     type : typeof ADD_ITEM;

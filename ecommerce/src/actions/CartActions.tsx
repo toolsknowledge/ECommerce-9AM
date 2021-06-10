@@ -1,36 +1,38 @@
 import axios from "axios";
-import { Dispatch } from "react";
+import { Dispatch } from "redux";
 import { ADD_ITEM, CartActionTypes } from "../types/CartActionTypes";
 
-const addCartItems = (id:any,qty:any)=>{
-    return async (dispatch:Dispatch<CartActionTypes>)=>{
+const addCartItem = (id:string,qty:number)=>{
+    return async (dispatch:Dispatch<CartActionTypes>, getState:()=>any)=>{
         try{
-            const result = await axios.get(`http://localhost:8080/api/products/${id}`);
-            const { data } = result;
+            const res = await axios.get(`http://localhost:8080/api/products/${id}`);
+            const { data } = res;
             data["qty"] = qty;
             dispatch({
                 type : ADD_ITEM,
-                selectedItem : data,
-                id:id
+                selectedItem:data
             })
-        }catch(error){
+
+            //access the final result (state) and store into local storage
+
+
+        }catch(err){
             dispatch({
                 type:ADD_ITEM,
                 selectedItem:{
                     _id:"",
                     brand:"",
+                    countInStock:0,
                     description:"",
                     image:"",
                     name:"",
-                    countInStock:0,
+                    numReviews:0,
                     price:0,
                     qty:0,
-                    rating:0,
-                },
-                id:id
+                    rating:0
+                }
             })
         }
     }
 };
-
-export default addCartItems;
+export default addCartItem;
