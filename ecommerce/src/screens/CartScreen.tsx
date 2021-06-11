@@ -34,12 +34,10 @@ class CartScreen extends Component<IProps,IState>{
 
 
     render(){
+        const {finalArray} = this.props.res;
         return(
             <React.Fragment>
-                {JSON.stringify(this.props.res)}
-                {/* {this.props.match.params.id}
-                <br></br>
-                {this.props.location.search?(Number(this.props.location.search.split("=")[1])):1} */}
+                {JSON.stringify(finalArray)}
             </React.Fragment>
         )
     };

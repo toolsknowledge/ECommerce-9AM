@@ -14,7 +14,7 @@ const addCartItem = (id:string,qty:number)=>{
             })
 
             //access the final result (state) and store into local storage
-
+            window.localStorage.setItem("cart", JSON.stringify(getState().cart.finalArray) );
 
         }catch(err){
             dispatch({

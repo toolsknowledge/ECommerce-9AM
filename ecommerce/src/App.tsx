@@ -15,9 +15,13 @@ import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 
+import { connect } from "react-redux";
+
 interface IState{}
 
-interface IProps{}
+interface IProps{
+   count:any;
+}
 
 
 class App extends Component<IProps,IState> {
@@ -25,6 +29,7 @@ class App extends Component<IProps,IState> {
       super(props);
    }
    render(){
+      console.log( this.props.count>0?100:0);
       return (
          <React.Fragment>
             <Router>
@@ -35,7 +40,9 @@ class App extends Component<IProps,IState> {
                      </div>
     
                      <div>
-                         <NavLink to="/" exact={true} strict>cart</NavLink>
+                         <NavLink to="/cart" exact={true} strict>cart 
+                           {this.props.count>0 ? (<span className="badge-success">{this.props.count}</span>) : (<span className="badge-empty">{this.props.count}</span>) }
+                         </NavLink>
                          <NavLink to="/" exact={true} strict>signin</NavLink>
                      </div>
                   </header>
@@ -58,4 +65,19 @@ class App extends Component<IProps,IState> {
   
 }
 
-export default App;
+const receive = (state:any)=>{
+   return{
+      count : state.cart.finalArray.length
+   }
+};
+
+
+const send = (dispatch:any)=>{
+   return{
+
+   }
+};
+
+
+
+export default connect(receive,send)(App);

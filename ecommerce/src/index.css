@@ -190,7 +190,27 @@ button.block {
   align-items: flex-start;
 }
 
+.badge-success{
+  background-color: green;
+  color: white;
+  padding: 5px;
+  margin: 1px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  font-size: small;
+}
 
+.badge-empty{
+  background-color: red;
+  color: white;
+  padding: 5px;
+  margin: 1px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  font-size: small;
+}
 
 
 
