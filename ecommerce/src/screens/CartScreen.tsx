@@ -3,7 +3,7 @@ import { match as Match } from "react-router-dom";
 import { Location } from "history";
 import { connect } from "react-redux";
 import addCartItem from "../actions/CartActions";
-
+import { deleteCartItem } from "../actions/CartActions";
 
 interface IState{}
 
@@ -12,6 +12,7 @@ interface IProps{
     location:Location;
     res:any;
     getAddItemResult:any;
+    removeItemFromCart:any;
 };
 
 interface routeParams{
@@ -33,11 +34,24 @@ class CartScreen extends Component<IProps,IState>{
     }
 
 
+    deleteItem = (id:any)=>{
+         this.props.removeItemFromCart(id);
+    };
+
+
     render(){
         const {finalArray} = this.props.res;
         return(
             <React.Fragment>
-                {JSON.stringify(finalArray)}
+                <div className="row top">
+                   {finalArray.map((element:any,index:number)=>(
+                       <div key={index}>
+                           <img src={element.image} className="small_img"></img> 
+                           <button onClick={()=>this.deleteItem(element._id)}>Delete</button>
+                       </div>
+                   ))} 
+                </div>
+                {/* {JSON.stringify(finalArray)} */}
             </React.Fragment>
         )
     };
@@ -52,7 +66,8 @@ const receive = (state:any)=>{
 
 const send = (dispatch:any)=>{
     return{
-        getAddItemResult : (id:string,qty:number)=>{ dispatch(addCartItem(id,qty)) }
+        getAddItemResult : (id:string,qty:number)=>{ dispatch(addCartItem(id,qty)) },
+        removeItemFromCart : (id:any)=>{ dispatch(deleteCartItem(id)) }        
     }
 };
 

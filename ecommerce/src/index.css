@@ -212,7 +212,10 @@ button.block {
   font-size: small;
 }
 
-
+.small_img{
+   width: 100px;
+   height: 100px;
+}
 
 
 

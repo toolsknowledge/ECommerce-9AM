@@ -1,5 +1,5 @@
 import Cart from "../model/Cart";
-import { ADD_ITEM, CartActionTypes } from "../types/CartActionTypes";
+import { ADD_ITEM, CartActionTypes, DELETE_ITEM } from "../types/CartActionTypes";
 
 interface IState{
     finalArray:Cart[];
@@ -31,6 +31,14 @@ const CartReducer = (state=initialState,action:CartActionTypes):IState=>{
                 }
             }
 
+            break;
+
+        case DELETE_ITEM:
+            const id = action.id;
+            return{
+                ...state,
+                finalArray : state.finalArray.filter((element)=>{ return element._id != id})
+            }
             break;
 
         default:
