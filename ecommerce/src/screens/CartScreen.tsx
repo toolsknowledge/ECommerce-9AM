@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { match as Match } from "react-router-dom";
+import { match as Match, NavLink } from "react-router-dom";
 import { Location } from "history";
 import { connect } from "react-redux";
 import addCartItem from "../actions/CartActions";
 import { deleteCartItem } from "../actions/CartActions";
+import MessageBox from "../components/MessageBox";
 
 interface IState{}
 
@@ -39,19 +40,134 @@ class CartScreen extends Component<IProps,IState>{
     };
 
 
+   myFun = (id:any,qty:any)=>{
+        this.props.getAddItemResult(id,Number(qty));
+   };
+
+
     render(){
         const {finalArray} = this.props.res;
         return(
             <React.Fragment>
                 <div className="row top">
-                   {finalArray.map((element:any,index:number)=>(
-                       <div key={index}>
-                           <img src={element.image} className="small_img"></img> 
-                           <button onClick={()=>this.deleteItem(element._id)}>Delete</button>
-                       </div>
-                   ))} 
+                    
+                    <div className="col-2">
+                        <h1> Shopping Cart </h1>
+                        {
+                            finalArray.length === 0 ? 
+                            (<MessageBox variant="danger">Cart is Empty. <NavLink to="/" exact={true} strict>Start Shopping</NavLink></MessageBox>) : 
+                            (<div>
+                                <ul>
+                                    {finalArray.map((item:any,index:number)=>(
+                                        <li key={index}>
+                                            <div className="row">
+                                                <div>
+                                                    <img src={item.image} alt={alert.name} className="small"></img>
+                                                </div>
+
+                                                <div>
+                                                    <NavLink  
+                                                        to={`/product/${item._id}`} 
+                                                        exact={true} strict> <span style={{color:"blue"}}>{item.name}</span> </NavLink>                                                </div>
+                                                </div>
+
+                                                <div>
+                                                    <select value={item.qty}
+                                                            onChange={(e:any)=>this.myFun(item._id,e.target.value)}>
+                                                             {
+                                                                [...Array(item.countInStock).keys()].map((x:any)=>(
+                                                                        <option key={x+1} value={x+1}>{x+1}</option>
+                                                                    ))
+                                                            }
+                                                    </select>
+                                                </div>
+
+                                                <div>
+                                                    $ {item.price}
+                                                </div>
+                                                
+                                                <div>
+                                                    <button onClick={()=>this.deleteItem(item._id)}>Delete</button>
+                                                </div>
+                                            
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>)
+                        }
+                    </div>
+
+                    <div className="col-1">
+                        <div className="card card-body">
+                            <ul>
+                                <li>
+                                    {/* {finalArray.reduce((firstValue:any,nextValue:any)=> firstValue.qty+nextValue.qty)} */}
+                                    Total Items:
+
+                                    Total Price:
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                
                 </div>
-                {/* {JSON.stringify(finalArray)} */}
+
+
+
+
+
+                 {/* <div className="row top">
+                     {JSON.stringify(finalArray)}
+                     <div className="col-2">
+                        <h1>Shopping Cart</h1>
+                        {
+                            // finalArray.length === 0 ? (<MessageBox variant="dander">Cart is Empty.
+                            // <NavLink to="/" exact={true} strict>Go to Shopping</NavLink> </MessageBox>):
+                            // (JSON.stringify(finalArray))
+                            <ul>
+                                {finalArray.map((item:any,index:number)=>(
+                                    <li key={index}>
+                                        <div className="row">
+                                            <div>
+                                                <img src={item.image} alt={item.name} className="small"></img>
+                                            </div>
+                                        </div>
+                                        <div className="min-30">
+                                            <NavLink to={`/product/${item._id}`}>{item.name}</NavLink>
+                                        </div>
+                                        <div>
+                                            <select value={item.qty} onChange={(e:any)=>this.myFun(item._id,e.target.value)}>
+                                                        {
+                                                            [...Array(item.countInStock).keys()].map((x:any)=>(
+                                                                <option key={x+1} value={x+1}>{x+1}</option>
+                                                            ))
+                                                        }
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            $ {item.price}
+                                        </div>
+
+                                        <div>
+                                            <button onClick={()=>{this.deleteItem(item._id)}}>Delete</button>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </div>
+
+                    <div className="col-1">
+                        <div className="card card-body">
+                            <ul>
+                                <li>
+                                   Hello
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                 </div> */}
             </React.Fragment>
         )
     };
