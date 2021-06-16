@@ -55,7 +55,7 @@ class App extends Component<IProps,IState> {
                   </main>
     
                   <footer className="row center">
-                      copyright@ashokit.in
+                      copyright@sambait.in
                   </footer>
                </div>
                
