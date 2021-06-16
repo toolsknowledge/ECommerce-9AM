@@ -21,6 +21,7 @@ interface IState{}
 
 interface IProps{
    count:any;
+   finalArray:any;
 }
 
 
@@ -29,18 +30,18 @@ class App extends Component<IProps,IState> {
       super(props);
    }
    render(){
-      console.log( this.props.count>0?100:0);
+      //console.log( this.props.finalArray[this.props.finalArray.length-1]._id );
       return (
          <React.Fragment>
             <Router>
                <div className="grid-container">
                   <header className="row">
                      <div>
-                        <NavLink to="/" exact={true} strict className="brand">AshokIT</NavLink>
+                        <NavLink to="/" exact={true} strict className="brand">SambaIT</NavLink>
                      </div>
     
                      <div>
-                         <NavLink to="/cart" exact={true} strict>cart 
+                         <NavLink to={`/cart`} exact={true} strict>cart 
                            {this.props.count>0 ? (<span className="badge-success">{this.props.count}</span>) : (<span className="badge-empty">{this.props.count}</span>) }
                          </NavLink>
                          <NavLink to="/" exact={true} strict>signin</NavLink>
@@ -50,7 +51,7 @@ class App extends Component<IProps,IState> {
                   <main>
                       <Route path="/" component={HomeScreen} exact={true} strict></Route>
                       <Route path="/product/:id" component={ProductScreen} exact={true} strict></Route>
-                      <Route path="/cart/:id" component={CartScreen} exact={true} strict></Route>
+                      <Route path="/cart/:id?" component={CartScreen} exact={true} strict></Route>
                   </main>
     
                   <footer className="row center">
@@ -67,7 +68,8 @@ class App extends Component<IProps,IState> {
 
 const receive = (state:any)=>{
    return{
-      count : state.cart.finalArray.length
+      count : state.cart.finalArray.length,
+      finalArray : state.cart.finalArray
    }
 };
 

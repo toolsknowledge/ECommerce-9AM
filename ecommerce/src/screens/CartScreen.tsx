@@ -61,15 +61,15 @@ class CartScreen extends Component<IProps,IState>{
                                     {finalArray.map((item:any,index:number)=>(
                                         <li key={index}>
                                             <div className="row">
+                                            
                                                 <div>
                                                     <img src={item.image} alt={alert.name} className="small"></img>
                                                 </div>
 
                                                 <div>
-                                                    <NavLink  
-                                                        to={`/product/${item._id}`} 
-                                                        exact={true} strict> <span style={{color:"blue"}}>{item.name}</span> </NavLink>                                                </div>
+                                                    <NavLink to={`/product/${item._id}`} exact={true} strict><span style={{color:'blue'}}>{item.name}</span></NavLink>
                                                 </div>
+
 
                                                 <div>
                                                     <select value={item.qty}
@@ -85,10 +85,14 @@ class CartScreen extends Component<IProps,IState>{
                                                 <div>
                                                     $ {item.price}
                                                 </div>
-                                                
+
+
                                                 <div>
-                                                    <button onClick={()=>this.deleteItem(item._id)}>Delete</button>
+                                                    {/* <button onClick={()=>this.deleteItem(item._id)}>Delete</button> */}
+                                                    <i className="fa fa-trash" style={{cursor:"pointer",color:"#0000ff",fontSize:"2rem"}} onClick={()=>this.deleteItem(item._id)}></i>
                                                 </div>
+                                            
+                                            </div>
                                             
                                         </li>
                                     ))}
@@ -101,10 +105,10 @@ class CartScreen extends Component<IProps,IState>{
                         <div className="card card-body">
                             <ul>
                                 <li>
-                                    {/* {finalArray.reduce((firstValue:any,nextValue:any)=> firstValue.qty+nextValue.qty)} */}
-                                    Total Items:
-
-                                    Total Price:
+                                    <h2>Total Number of ( {finalArray.reduce((totalItem:any,arg2:any) => totalItem+arg2.qty,0)} ) Items and Grand Total {finalArray.reduce((totalprice:any,arg2:any) => totalprice+(arg2.qty*arg2.price),0)} </h2>
+                                </li>
+                                <li>
+                                    <button className="primary block" >Proceed to pay</button>
                                 </li>
                             </ul>
                         </div>
