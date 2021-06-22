@@ -10,6 +10,10 @@ const dotenv = require("dotenv");
 const bcryptjs = require("bcryptjs");
 const bodyparser = require("body-parser");
 const Product = require("./model/productModel");
+const User = require("./model/userModel");
+const data = require("./data");
+const generateToken = require("./generateToken");
+
 
 
 //to develop "rest api's" we should create "rest" object
@@ -74,6 +78,33 @@ app.get("/api/products/:id",express_async_handler(async (req,res)=>{
     }
 }));
 
+
+app.get("/api/users/seed",express_async_handler(async (req,res)=>{
+    await User.remove({});
+    const createUsers = await User.insertMany(data.users);
+    res.send({createUsers});
+}));
+
+
+//create the post request
+app.post("/api/users/signin",express_async_handler(async (req,res)=>{
+    const user = await User.findOne({"email":req.body.email});
+    if(user){
+        if(bcryptjs.compareSync(req.body.password,user.password)){
+            res.status(200).send({
+                _id:user._id,
+                email:user.email,
+                isAdmin:user.isAdmin,
+                image:user.image,
+                token:generateToken(user)
+            })
+        }else{
+            res.status(401).send({message:"invalid password"});
+        }
+    }else{
+        res.status(401).send({"message":"invalid user name / password"});
+    }
+}));
 
 
 //assign the port number
