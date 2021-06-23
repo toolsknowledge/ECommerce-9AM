@@ -529,15 +529,55 @@ App.tsx
 
 
 1) model
+	**********************************
+	ecommerce
+		    src
+				model
+					Signin.tsx
+	***********************************
+		finally "Signin" model is ready
+
 
 2) types
 
+	******************************************
+	ecommerce	
+		    src
+			  types
+			     SigninTypes.tsx
+	******************************************
+			SignIn interface is ready.
+
+			SigninActionTypes also ready.
+
+
+
+			  
+
 3) actions
+
+		******************************************
+		ecommerce
+				src
+				   actions
+				   		SigninActions.tsx
+		******************************************
+			finally "SignIn" action is ready
+
 
 4) reducer
 
-5) store
+	**************************************************
+	ecommerce
+		    src
+			  reducer
+			  	SigninReducer.tsx
+	*************************************************
+			finally "SigninReducer" is ready.
 
+
+5) store
+	
 6) SigninScreen
 
 

@@ -226,7 +226,12 @@ img.small{
    min-width: 30rem;
 }
 
-
+.profile_pic{
+   width: 3vw;
+   height: 3vw;
+   border-radius: 100%;
+   align-items: center;
+}
 
 
 

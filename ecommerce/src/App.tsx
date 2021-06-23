@@ -16,12 +16,14 @@ import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 
 import { connect } from "react-redux";
+import SigninScreen from './screens/SigninScreen';
 
 interface IState{}
 
 interface IProps{
    count:any;
    finalArray:any;
+   image:string;
 }
 
 
@@ -30,7 +32,7 @@ class App extends Component<IProps,IState> {
       super(props);
    }
    render(){
-      //console.log( this.props.finalArray[this.props.finalArray.length-1]._id );
+      console.log( this.props.image );
       return (
          <React.Fragment>
             <Router>
@@ -44,7 +46,8 @@ class App extends Component<IProps,IState> {
                          <NavLink to={`/cart`} exact={true} strict>cart 
                            {this.props.count>0 ? (<span className="badge-success">{this.props.count}</span>) : (<span className="badge-empty">{this.props.count}</span>) }
                          </NavLink>
-                         <NavLink to="/" exact={true} strict>signin</NavLink>
+                         <NavLink to="/signin" exact={true} strict>signin</NavLink>
+                         <img src={this.props.image} className="profile_pic"></img>
                      </div>
                   </header>
     
@@ -52,6 +55,7 @@ class App extends Component<IProps,IState> {
                       <Route path="/" component={HomeScreen} exact={true} strict></Route>
                       <Route path="/product/:id" component={ProductScreen} exact={true} strict></Route>
                       <Route path="/cart/:id?" component={CartScreen} exact={true} strict></Route>
+                      <Route path="/signin" component={SigninScreen} exact={true} strict></Route>
                   </main>
     
                   <footer className="row center">
@@ -69,7 +73,8 @@ class App extends Component<IProps,IState> {
 const receive = (state:any)=>{
    return{
       count : state.cart.finalArray.length,
-      finalArray : state.cart.finalArray
+      finalArray : state.cart.finalArray,
+      image : state.signin.user_details.image
    }
 };
 
