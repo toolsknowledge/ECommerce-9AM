@@ -234,6 +234,36 @@ img.small{
 }
 
 
+.form{
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.form > div{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.form label{
+  margin: 1rem 0;
+}
+input{
+  height: 25px;
+}
+
+
+.btn-warning {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  border: none;
+  padding: 10px;
+  color: #212529;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
 
 
 
