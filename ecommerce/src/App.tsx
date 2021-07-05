@@ -46,8 +46,7 @@ class App extends Component<IProps,IState> {
                          <NavLink to={`/cart`} exact={true} strict>cart 
                            {this.props.count>0 ? (<span className="badge-success">{this.props.count}</span>) : (<span className="badge-empty">{this.props.count}</span>) }
                          </NavLink>
-                         <NavLink to="/signin" exact={true} strict>signin</NavLink>
-                         <img src={this.props.image} className="profile_pic"></img>
+                         {this.props.image == ''? [<NavLink to="/signin" exact={true} strict>Signin</NavLink>,<i className="fa fa-user-circle-o" style={{fontSize:"20px",color:"white",padding:"10px"}}></i>]: [<NavLink to="/" exact={true} strict>Signout</NavLink>,<NavLink to="/" exact={true} strict><img src={this.props.image} className="profile_pic"></img></NavLink>]}
                      </div>
                   </header>
     

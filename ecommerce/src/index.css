@@ -227,8 +227,8 @@ img.small{
 }
 
 .profile_pic{
-   width: 3vw;
-   height: 3vw;
+   width: 30px;
+   height: 30px;
    border-radius: 100%;
    align-items: center;
 }
@@ -262,6 +262,13 @@ input{
   color: #212529;
   font-weight: 900;
   border-radius: 10px;
+}
+
+.row1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 

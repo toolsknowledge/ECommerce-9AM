@@ -586,6 +586,68 @@ App.tsx
 
 
 
+Payment Gateways Integration
+============================
+
+1) backend
+
+2) frontend
+
+
+backend implementation
+======================
+
+	in backend we will use secrete key.
+
+	secrete key we need to generate by stripe account.
+
+
+=> express
+
+=> stripe
+
+=> cors
+
+=> uuid/v4
+
+
+> cd server
+
+> yarn add express stripe cors uuid --save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

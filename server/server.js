@@ -13,6 +13,10 @@ const Product = require("./model/productModel");
 const User = require("./model/userModel");
 const data = require("./data");
 const generateToken = require("./generateToken");
+//make the availability of .env file
+dotenv.config();
+const stripe = require("stripe")(process.env.SECRETE_KEY);
+const uuid = require("uuid");
 
 
 
@@ -36,8 +40,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
 
-//make the availability of .env file
-dotenv.config();
+
 
 
 
@@ -105,6 +108,14 @@ app.post("/api/users/signin",express_async_handler(async (req,res)=>{
         res.status(401).send({"message":"invalid user name / password"});
     }
 }));
+
+
+//create the post request
+app.post("/payment",(req,res)=>{
+    //receive data from reactjs
+    //connect to banking server
+});
+
 
 
 //assign the port number
